@@ -1,0 +1,17 @@
+package com.agenciatur.model;
+
+public class Destino {
+	
+	private int idDestino;
+	private String fornecedorDestino;
+	private String vagasDestino;
+	private int  ValorDestino;
+	private String transporteDestino;	
+	private String enderecoDestino;
+	private String nomeDestino;
+	
+	
+	
+	
+
+}

@@ -1,0 +1,68 @@
+package com.agenciatur.model;
+
+public class Destino {
+	
+	private int IdDestinos;
+	private String EnderecoDestino;
+	private String NomeDestino;
+	private int  ValorDestino;
+	private String FornecedorDestino;
+	private String DetathesDestinos;
+	private String VagasDestino;
+	private String TransporteDestino;
+	
+	
+	
+	public int getIdDestinos() {
+		return IdDestinos;
+	}
+	public void setIdDestinos(int idDestinos) {
+		IdDestinos = idDestinos;
+	}
+	public String getEnderecoDestino() {
+		return EnderecoDestino;
+	}
+	public void setEnderecoDestino(String enderecoDestino) {
+		EnderecoDestino = enderecoDestino;
+	}
+	public String getNomeDestino() {
+		return NomeDestino;
+	}
+	public void setNomeDestino(String nomeDestino) {
+		NomeDestino = nomeDestino;
+	}
+	public int getValorDestino() {
+		return ValorDestino;
+	}
+	public void setValorDestino(int valorDestino) {
+		ValorDestino = valorDestino;
+	}
+	public String getFornecedorDestino() {
+		return FornecedorDestino;
+	}
+	public void setFornecedorDestino(String fornecedorDestino) {
+		FornecedorDestino = fornecedorDestino;
+	}
+	public String getDetathesDestinos() {
+		return DetathesDestinos;
+	}
+	public void setDetathesDestinos(String detathesDestinos) {
+		DetathesDestinos = detathesDestinos;
+	}
+	public String getVagasDestino() {
+		return VagasDestino;
+	}
+	public void setVagasDestino(String vagasDestino) {
+		VagasDestino = vagasDestino;
+	}
+	public String getTransporteDestino() {
+		return TransporteDestino;
+	}
+	public void setTransporteDestino(String transporteDestino) {
+		TransporteDestino = transporteDestino;
+	}
+	
+	
+	
+
+}

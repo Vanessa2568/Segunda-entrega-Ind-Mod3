@@ -1,0 +1,25 @@
+package com.agenciatur.db;
+
+import java.sql.Connection;
+
+public class DbConexao {
+	
+	private static final String url = "jdbc:maysql://localhost:3306/turnordeste";
+	
+	private static final String user = "root";
+	
+	private static final String password = "root";
+	
+	public static Connection createConnection() {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Drive encontrado!");
+			
+		} catch(ClassNotFoundException e) {
+			System.out.println("Drive não encontrado! Mensagem:" + e.getMessage());
+		}
+		}
+		
+	}
+
+}

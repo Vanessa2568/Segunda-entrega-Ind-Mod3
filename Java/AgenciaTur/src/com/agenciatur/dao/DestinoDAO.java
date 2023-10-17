@@ -1,0 +1,45 @@
+package com.agenciatur.dao;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.agenciatur.model.Destino;
+
+
+public class DestinoDAO {
+	
+	private static String sql;
+	private final Connection connection;
+	
+	public DestinoDAO(Connection connection) {
+		this.connection = connection;
+	}
+	
+	// CREATE
+	public void createDestino(Destino destino) {
+		sql = "INSERT INTO destino (fornecedorDestino, vagasDestino, ValorDestino, transporteDestino, enderecoDestino, nomeDestino, idCliente) VALUES (?,?,?,?,?,?,?)";
+		try (PreparedStatement stmt = connection.prepareStatement(sql)){
+			stmt.setString(1, destino.getFornecedorDestino());
+			stmt.setString(2, destino.getVagasDestino());
+			stmt.setInt (3, destino.getValorDestino());
+			stmt.setString(4, destino.getTransporteDestino());
+			stmt.setString(5, destino.getEnderecoDestino());
+			stmt.setString(6, destino.getNomeDestino());
+			stmt.setInt (7, destino.getCliente().getIdCliente());
+			
+			stmt.executeUpdate();
+			System.out.println("Destino cadastrado !" + destino.toString());
+			//" Destino inserido =>> " + destino.getNomeDestino());
+			
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	
+	
+
+}

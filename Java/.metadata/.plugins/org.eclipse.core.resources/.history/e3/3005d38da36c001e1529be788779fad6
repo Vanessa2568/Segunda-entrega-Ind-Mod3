@@ -1,0 +1,87 @@
+package com.agenciatur.dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.agenciatur.model.Cliente;
+
+public class ClienteDAO {
+	
+	private static String sql;
+	private final Connection connection;
+	
+	public ClienteDAO(Connection connection) {
+		this.connection = connection;
+	}
+	
+	
+	// CREATE
+	public void createCliente(Cliente cliente) {
+		sql = "INSERT INTO cliente (tipoCliente, nomeCliente, cpfcnpjCliente, emailCliente, enderecoCliente, telefoneCliente, formaPgto) VALUES (?,?,?,?,?,?,?)";
+		try(PreparedStatement stmt = connection.prepareStatement(sql)){
+			stmt.setString(1, cliente.getTipoCliente());
+			stmt.setString(2, cliente.getNomeCliente());
+			stmt.setString(3, cliente.getCpfcnpjCliente());
+			stmt.setString(4, cliente.getEmailCliente());
+			stmt.setString(5, cliente.getEnderecoCliente());
+			stmt.setString(6, cliente.getTelefoneCliente());
+			stmt.setString(7, cliente.getFormaPgto());
+			
+			stmt.executeUpdate();
+			System.out.println("Cliente criado com sucesso!" + "Cliente Inserido =>> " + cliente.getNomeCliente());
+			
+		}catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	// READ
+	public void readllClients() {
+		sql="SELECT * FROM cliente";
+		try(PreparedStatement stmt = connection.prepareStatement(sql)){
+			ResultSet r = stmt.executeQuery();
+			while(r.next()) {
+				Cliente cliente = new Cliente();
+				cliente.setTipoCliente(r.getString("TipoCliente"));
+				cliente.setNomeCliente(r.getString("NomeCliente"));
+				cliente.setCpfcnpjCliente(r.getString("CpfcnpjCliente"));
+				cliente.setEmailCliente(r.getString("EmailCliente"));
+				cliente.setEnderecoCliente(r.getString("EnderecoCliente"));
+				cliente.setTelefoneCliente(r.getString("TelefoneCliente"));
+				cliente.setFormaPgto(r.getString("FormaPgto"));
+				
+				System.out.printf("Nome: %s\n CPF: %s\n Tipo: %s\\n,", cliente.getNomeCliente(), cliente.getCpfcnpjCliente(), cliente.getTipoCliente());
+			}
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+
+	//UPDATE
+	public void updateClient(Cliente cliente) {
+		sql="UPDATE cliente SET TipoCliente = ?, NomeCliente = ?, CpfcnpjCliente = ?, EmailCliente = ?, EnderecoCliente = ?, TelefoneCliente = ?, FormaPgto = ? WHERE = idCliente = ? ";
+		try(PreparedStatement stmt = connection.prepareStatement(sql)){
+			stmt.setString(1, cliente.getTipoCliente());
+			stmt.setString(2, cliente.getNomeCliente());
+			stmt.setString(3, cliente.getCpfcnpjCliente());
+			stmt.setString(4, cliente.getEmailCliente());
+			stmt.setString(5, cliente.getEnderecoCliente());
+			stmt.setString(6, cliente.getTelefoneCliente());
+			stmt.setString(7, cliente.getFormaPgto());
+			
+			stmt.executeUpdate();
+			
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
+	
+	
+	
+	
+}

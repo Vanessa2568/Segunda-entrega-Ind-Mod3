@@ -1,0 +1,84 @@
+package com.agencuatur.model;
+
+public class Cliente {
+	private int idCliente;
+	private String tipoCliente;
+	private String nomeCliente;
+	private String cpfcnpjCliente;
+	private String emailCliente;
+	private String enderecoCliente;
+	private String telefoneCliente;
+	public enum FormaPgto {
+		PIX,
+		CARTÃO,
+		BOLETO,
+		ESPECIE
+	}
+	private FormaPgto formaPgto;
+	
+	public int getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+	public String getTipoCliente() {
+		return tipoCliente;
+	}
+	public void setTipoCliente(String tipoCliente) {
+		this.tipoCliente = tipoCliente;
+	}
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+	public String getCpfcnpjCliente() {
+		return cpfcnpjCliente;
+	}
+	public void setCpfcnpjCliente(String cpfcnpjCliente) {
+		this.cpfcnpjCliente = cpfcnpjCliente;
+	}
+	public String getEmailCliente() {
+		return emailCliente;
+	}
+	public void setEmailCliente(String emailCliente) {
+		this.emailCliente = emailCliente;
+	}
+	public String getEnderecoCliente() {
+		return enderecoCliente;
+	}
+	public void setEnderecoCliente(String enderecoCliente) {
+		this.enderecoCliente = enderecoCliente;
+	}
+	public String getTelefoneCliente() {
+		return telefoneCliente;
+	}
+	public void setTelefoneCliente(String telefoneCliente) {
+		this.telefoneCliente = telefoneCliente;
+	}
+	public String getFormaPgto() {
+		return formaPgto.name();
+	}
+	public void setFormaPgto(String formaPgto) {
+		if("PIX".equalsIgnoreCase(formaPgto)){
+			this.formaPgto = FormaPgto.PIX;
+		} else if ("CARTÃO".equalsIgnoreCase(formaPgto)) {
+			this.formaPgto = FormaPgto.CARTÃO;
+		} else if ("BOLETO".equalsIgnoreCase(formaPgto)) {
+			this.formaPgto = FormaPgto.BOLETO;
+		} else if ("ESPECIE".equalsIgnoreCase(formaPgto)) {
+			this.formaPgto = FormaPgto.ESPECIE;
+		} else {
+			System.out.println("Valor Invalido: " + formaPgto);
+		}
+	}
+	
+	
+	
+	
+	
+	
+
+}

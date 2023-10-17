@@ -1,0 +1,14 @@
+package com.agenciatur.dao;
+
+import java.sql.Connection;
+
+public class DestinoDAO {
+	
+	private static String sql;
+	private final Connection connection;
+	
+	public DestinoDAO(Connection connection) {
+		this.connection = connection;
+	}
+
+}

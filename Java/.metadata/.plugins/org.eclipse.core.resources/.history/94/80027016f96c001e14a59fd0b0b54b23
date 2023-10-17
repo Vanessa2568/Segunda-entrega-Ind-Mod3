@@ -1,0 +1,5 @@
+package com.agenciatur.dao;
+
+public class DestinoDAO {
+
+}

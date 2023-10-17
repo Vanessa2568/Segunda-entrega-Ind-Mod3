@@ -1,0 +1,33 @@
+package com.agenciatur;
+
+import com.agenciatur.dao.ClienteDAO;
+import com.agenciatur.db.DbConexao;
+import com.agenciatur.model.Cliente;
+import com.agenciatur.dao.ClienteDAO;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		var connection = DbConexao.createConnection();
+		DbConexao.createConnection();
+		ClienteDAO clienteDAO = new ClienteDAO (connection);		
+		
+//		CRIANDO CLIENTE
+//		Cliente cliente = new Cliente();		
+//		cliente.setTipoCliente("PF");
+//		cliente.setNomeCliente("Roberto");
+//		cliente.setCpfcnpjCliente("658245824");
+//		cliente.setEmailCliente("Ricardo@email.com");
+//		cliente.setEnderecoCliente("Rua casa hif");
+//		cliente.setTelefoneCliente("81-6666666666");
+//		cliente.setFormaPgto("PIX");
+//		
+//		clienteDAO.createCliente(cliente);	
+		
+		clienteDAO.readllClients();
+		
+	}	
+		
+}
+		

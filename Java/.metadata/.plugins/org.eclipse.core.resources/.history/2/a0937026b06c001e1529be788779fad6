@@ -1,0 +1,116 @@
+package com.agenciatur;
+
+import java.util.Scanner;
+
+import com.agenciatur.dao.ClienteDAO;
+import com.agenciatur.db.DbConexao;
+import com.agenciatur.model.Cliente;
+import com.agenciatur.dao.ClienteDAO;
+
+public class Main {
+
+	public static void main(String[] args) {
+		var connection = DbConexao.createConnection();
+		DbConexao.createConnection();
+		ClienteDAO clienteDAO = new ClienteDAO (connection);		
+		
+//		CRIANDO CLIENTE
+//		Cliente cliente = new Cliente();		
+//		cliente.setTipoCliente("PF");
+//		cliente.setNomeCliente("Roberto");
+//		cliente.setCpfcnpjCliente("658245824");
+//		cliente.setEmailCliente("Ricardo@email.com");
+//		cliente.setEnderecoCliente("Rua casa hif");
+//		cliente.setTelefoneCliente("81-6666666666");
+//		cliente.setFormaPgto("PIX");
+//		
+//		clienteDAO.createCliente(cliente);
+		
+		//READ CLIENTE
+//		clienteDAO.readllClients();			
+		
+		//UPDATE Cliente
+//		Cliente cliente = new Cliente("PJ", "CAROL", "12345678988", "CARLA@COM", "RUA DA PREDA", "85-2589633", "PIX");
+//		cliente.setIdCliente(3);		
+//		clienteDAO.updateClient(cliente);
+		
+		//DELETE CLIENTE
+//		clienteDAO.deleteCliente(5);
+		
+//---------------------------------------------------
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		var option = 0;
+		do {
+			System.out.println("Escolha uma opção de 1 a 5\n"
+					+ "1 - Create\n"
+					+ "2 - Read\n"
+					+ "3 - Update\n"
+					+ "4 - Delete\n"
+					+ "5 - Sair\n" );
+			option = scanner.nextInt();	
+			
+			
+			switch (option) {
+			case 1:
+				Cliente cliente = new Cliente();
+				System.out.println("Tipo: ");				
+				cliente.setTipoCliente(scanner.nextLine());
+				scanner.hasNextLine();
+				System.out.println("Nome: ");
+				cliente.setNomeCliente(scanner.nextLine());
+				scanner.hasNextLine();
+				System.out.println("CPF ou CNPJ: ");
+				cliente.setCpfcnpjCliente(scanner.next().trim());
+				System.out.println("E-mail: ");
+				cliente.setEmailCliente(scanner.next().trim());
+				System.out.println("Endereço: ");
+				cliente.setEnderecoCliente(scanner.nextLine());
+				scanner.hasNextLine();
+				System.out.println("Telefone: ");
+				cliente.setTelefoneCliente(scanner.next().trim());
+				System.out.println("Forma de Pagamento: ");
+				cliente.setFormaPgto(scanner.nextLine());
+				
+				clienteDAO.createCliente(cliente);
+				break;
+				
+			case 2:				
+				clienteDAO.readAllClients();
+				break;
+				
+			case 3:				
+				Cliente clienteAtualizado = new Cliente();
+				System.out.println("Digite a Id do cliente para alterar: ");
+				scanner.hasNextLine();
+				clienteAtualizado.setIdCliente(scanner.nextInt());				
+				System.out.println("Tipo: ");
+				clienteAtualizado.setTipoCliente(scanner.nextLine());
+				System.out.println("Nome: ");
+				clienteAtualizado.setNomeCliente(scanner.nextLine());
+				System.out.println("CPF ou CNPJ: ");
+				clienteAtualizado.setCpfcnpjCliente(scanner.next().trim());
+				System.out.println("E-mail: ");
+				clienteAtualizado.setEmailCliente(scanner.next().trim());
+				System.out.println("Endereço: ");
+				clienteAtualizado.setEnderecoCliente(scanner.nextLine());
+				System.out.println("Telefone: ");
+				clienteAtualizado.setTelefoneCliente(scanner.next().trim());
+				System.out.println("Forma de Pagamento: ");
+				clienteAtualizado.setFormaPgto(scanner.nextLine());
+				
+				clienteDAO.updateClient(clienteAtualizado);
+				break;				
+			default:
+				break;
+			}
+			
+		} while(option !=5);	
+		
+		
+		
+	}	
+		
+}
+		
